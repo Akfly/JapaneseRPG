@@ -34,3 +34,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Packages from Unity Asset Store
+Assets/RPG Battle System*
+Assets/RPG Battle System.meta
