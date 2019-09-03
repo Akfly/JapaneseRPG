@@ -35,6 +35,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# Unity Log
+Logs/Packages-Update.log
+
 # Packages from Unity Asset Store
 Assets/RPG Battle System*
 Assets/RPG Battle System.meta
