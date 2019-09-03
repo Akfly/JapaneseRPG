@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/RPG Battle System/Scenes/DarkForest/BattleDarkForest.unity
+    guid: e3291d4dd4672cf419991ff340b4020c
+  - enabled: 1
+    path: Assets/RPG Battle System/Scenes/Menus/Main.unity
+    guid: 89d6cb110f9985d47b466d31b26ce5fe
+  - enabled: 1
+    path: Assets/RPG Battle System/Scenes/Menus/SplatchScreen.unity
+    guid: 4a5a1fe802f53994a9acff7bac90a25a
+  - enabled: 1
+    path: Assets/RPG Battle System/Scenes/Loader.unity
+    guid: 1c176a378544d6947803038d42c80bc7
+  m_configObjects: {}
