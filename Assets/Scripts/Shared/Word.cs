@@ -28,4 +28,11 @@ public class Word
         int total = fails + wins;
         ratio = total > 0? ((float)wins / total) : 0.0f;
     }
+
+
+    public override string ToString()
+    {
+        return "[" + level + ", " + group + "] " +
+            kanji + " (" + pronunciation + "): " + translation;
+    }
 }

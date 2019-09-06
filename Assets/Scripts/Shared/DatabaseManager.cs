@@ -7,10 +7,13 @@ public class DatabaseManager : MonoBehaviour
     public static DatabaseManager instance { get; private set; }
 
     public TextAsset databaseFile;
-    private Word[] wordList;
+    [HideInInspector] public List<Word> wordList { get; private set; }
 
     [HideInInspector] public List<int> levelList { get; private set; }
     [HideInInspector] public List<string> groupList { get; private set; }
+
+    [HideInInspector] public Dictionary<int, List<int>> levelsWithGroupLists { get; private set; }
+    [HideInInspector] public Dictionary<string, List<int>> groupsWithLevels { get; private set; }
 
     void Awake()
     {
@@ -35,17 +38,37 @@ public class DatabaseManager : MonoBehaviour
             return;
         }
         string[] rows = databaseFile.text.Split('\n');
-        wordList = new Word[rows.Length];
+        wordList = new List<Word>();
         levelList = new List<int>();
         groupList = new List<string>();
+        levelsWithGroupLists = new Dictionary<int, List<int>>();
+        groupsWithLevels = new Dictionary<string, List<int>>();
         for (int i = 0; i < rows.Length; i++)
         {
             if(rows[i].Length > 1)
             { 
-                Debug.Log(rows[i]);
-                wordList[i] = new Word(rows[i]);
-                if(!levelList.Contains(wordList[i].level)) levelList.Add(wordList[i].level);
-                if (!groupList.Contains(wordList[i].group)) groupList.Add(wordList[i].group);
+                wordList.Add(new Word(rows[i]));
+                if (!levelList.Contains(wordList[i].level))
+                {
+                    levelList.Add(wordList[i].level);
+                    levelsWithGroupLists.Add(wordList[i].level, new List<int>());
+                }
+                if (!groupList.Contains(wordList[i].group))
+                {
+                    groupList.Add(wordList[i].group);
+                    groupsWithLevels.Add(wordList[i].group, new List<int>());
+                }
+
+                if(!groupsWithLevels[wordList[i].group].Contains(wordList[i].level))
+                {
+                    groupsWithLevels[wordList[i].group].Add(wordList[i].level);
+                }
+
+                int groupIndex = groupList.IndexOf(wordList[i].group);
+                if (!levelsWithGroupLists[wordList[i].level].Contains(groupIndex))
+                {
+                    levelsWithGroupLists[wordList[i].level].Add(groupIndex);
+                }
             }
         }
     }
