@@ -1,14 +1,30 @@
 ﻿
+[System.Serializable]
 public class Word
 {
-    public int level { get; private set; }
-    public string group { get; private set; }
-    public string kanji { get; private set; }
-    public string pronunciation { get; private set; }
-    public string translation { get; private set; }
-    public int fails { get; private set; }
-    public int wins { get; private set; }
-    public float ratio { get; private set; }
+    [UnityEngine.SerializeField] private string _kanji;
+    public string kanji { get => _kanji; private set { _kanji = value; } }
+
+    [UnityEngine.SerializeField] private string _pronunciation;
+    public string pronunciation { get => _pronunciation; private set { _pronunciation = value; } }
+
+    [UnityEngine.SerializeField] private string _translation;
+    public string translation { get => _translation; private set { _translation = value; } }
+
+    [UnityEngine.SerializeField] private int _level;
+    public int level { get => _level; private set { _level = value; } }
+
+    [UnityEngine.SerializeField] private string _group;
+    public string group { get => _group; private set { _group = value; } }
+
+    [UnityEngine.SerializeField] private int _fails;
+    public int fails { get => _fails; private set { _fails = value; } }
+
+    [UnityEngine.SerializeField] private int _wins;
+    public int wins { get => _wins; private set { _wins = value; } }
+
+    [UnityEngine.SerializeField] private float _ratio;
+    public float ratio { get => _ratio; private set { _ratio = value; } }
 
     public Word(string csvData)
     {
