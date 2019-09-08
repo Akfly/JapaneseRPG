@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
@@ -76,6 +77,9 @@ public class MainMenuController : MonoBehaviour
                 gameList.Add(word);
             }
         }
+
+        GameManager.instance.wordsToUse = gameList;
         Utils.DebugList(gameList);
+        SceneManager.LoadScene("MinigamePlayer");
     }
 }
