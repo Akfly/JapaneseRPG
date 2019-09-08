@@ -6,7 +6,6 @@ public class MinigameKanji2PronunciationType : MinigameBase
 {
     public Text kanjiWord;
     public InputField userInput;
-    public Button inputButton;
     public Text correctAnswer;
     private Word selectedWord;
 
@@ -16,7 +15,6 @@ public class MinigameKanji2PronunciationType : MinigameBase
         Utils.DebugList(GameManager.instance.wordsToUse);
         selectedWord = Utils.GetRandomWordByRatio(GameManager.instance.wordsToUse);
         kanjiWord.text = selectedWord.kanji;
-        inputButton.interactable = true;
         userInput.interactable = true;
         userInput.text = "";
         correctAnswer.text = "";
@@ -24,7 +22,6 @@ public class MinigameKanji2PronunciationType : MinigameBase
 
     public void CheckCorrect()
     {
-        inputButton.interactable = false;
         userInput.interactable = false;
         string userText = Utils.KataToHira(userInput.text);
         string toCompareText = Utils.KataToHira(selectedWord.pronunciation);
