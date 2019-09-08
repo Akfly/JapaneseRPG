@@ -45,10 +45,22 @@ public class Word
         ratio = total > 0? ((float)wins / total) : 0.0f;
     }
 
+    public void AddWin()
+    {
+        _wins++;
+        calculateTotal();
+    }
+
+    public void AddFail()
+    {
+        _fails++;
+        calculateTotal();
+    }
 
     public override string ToString()
     {
         return "[" + level + ", " + group + "] " +
-            kanji + " (" + pronunciation + "): " + translation;
+            kanji + " (" + pronunciation + "): " + translation　+
+            " [" + wins + "/" + fails + " = " + ratio + "]";
     }
 }
